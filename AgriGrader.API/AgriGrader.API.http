@@ -1,0 +1,6 @@
+@AgriGrader.API_HostAddress = http://localhost:5282
+
+GET {{AgriGrader.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
