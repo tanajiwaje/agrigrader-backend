@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace AgriGrader.Infrastructure.Repositories
 {
@@ -61,6 +62,16 @@ namespace AgriGrader.Infrastructure.Repositories
             var data = await query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
 
             return (data, totalCount);
+        }
+
+        public async Task<Customer> GetByMobileNumberAsync(string mobileNumber)
+        {
+           return await _context.Customers.FirstOrDefaultAsync(c => c.MobileNumber == mobileNumber);
+        }
+
+        public async Task<Customer> GetByEmailAsync(string email)
+        {
+           return await _context.Customers.FirstOrDefaultAsync(c => c.Email == email);
         }
     }
 }

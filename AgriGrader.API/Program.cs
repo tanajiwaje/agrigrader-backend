@@ -12,7 +12,7 @@ using AgriGrader.Infrastructure.Services;
 using Microsoft.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
-
+// this line for git testing in the visual studio
 // Add services to the container
 
 builder.Services.AddControllers(); // Enables API Controllers
@@ -40,6 +40,13 @@ builder.Services.AddScoped<ISubCommodityService, SubCommodityService>();
 
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
+
+builder.Services.AddScoped<IOtpRepository, OtpRepository>();
+builder.Services.AddScoped<IOtpService, OtpService>();
+
+builder.Services.AddScoped<IAuthService, AuthService>();
+
+
 
 
 

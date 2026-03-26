@@ -8,6 +8,6 @@ namespace AgriGrader.Application.Interfaces
 {
     public interface IFirebaseOtpService
     {
-        Task SendOtpToFirebaseAsync(string phoneNumber);
+        Task SendOtpToFirebaseAsync(string phoneNumber,string otp);
     }
 }
