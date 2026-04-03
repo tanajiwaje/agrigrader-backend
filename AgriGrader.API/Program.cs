@@ -41,6 +41,13 @@ builder.Services.AddScoped<ISubCommodityService, SubCommodityService>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 
+builder.Services.AddScoped<IOtpRepository, OtpRepository>();
+builder.Services.AddScoped<IOtpService, OtpService>();
+
+builder.Services.AddScoped<IAuthService, AuthService>();
+
+
+
 
 
 

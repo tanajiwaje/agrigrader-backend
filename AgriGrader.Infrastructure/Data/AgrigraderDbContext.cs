@@ -22,6 +22,7 @@ namespace AgriGrader.Infrastructure.Data
 
         public DbSet<Role> Roles { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<OtpVerification> OtpVerifications { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -46,6 +47,9 @@ namespace AgriGrader.Infrastructure.Data
 
             modelBuilder.Entity<SubCommodity>()
                 .ToTable("SubCommodities", "master");
+           
+            modelBuilder.Entity<OtpVerification>()
+               .ToTable("OtpVerifications", "master");
         }
 
 

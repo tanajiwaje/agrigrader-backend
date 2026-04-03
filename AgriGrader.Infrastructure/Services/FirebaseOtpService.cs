@@ -36,12 +36,12 @@ namespace AgriGrader.Infrastructure.Services
             return new Random().Next(100000, 999999).ToString();
         }
 
-        public async Task SendOtpToFirebaseAsync(string phoneNumber)
+        public async Task SendOtpToFirebaseAsync(string phoneNumber, string otp)
         {
             var data = new
             {
                 phone = phoneNumber,
-                otp = GenerateOtp(),
+                otp = otp,
                 sent = false,
                 timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds()
             };

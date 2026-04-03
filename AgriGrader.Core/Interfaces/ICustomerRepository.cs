@@ -15,6 +15,9 @@ namespace AgriGrader.Core.Interfaces
         Task updateAsync(Customer customer);
         Task DeleteAsync(Customer customer);
 
+        Task<Customer> GetByMobileNumberAsync(string mobileNumber);
         Task<(List<Customer>, int)> GetPagedAsync(int pageNumber, int pageSize);
+
+       Task<Customer> GetByEmailAsync(string email);
     }
 }
