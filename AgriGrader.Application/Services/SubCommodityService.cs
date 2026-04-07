@@ -19,8 +19,16 @@ namespace AgriGrader.Application.Services
             _repository = repository;
         }
 
-        public async Task AddAsync(SubCommodity subCommodity)
+        public async Task AddAsync(SubCommodity subCommodityobj)
         {
+            var subcommodiyResp = await _repository.GetAllAsync();
+            int nextNumber = subcommodiyResp.Count() + 1;
+
+            var subCommodity = new SubCommodity
+            {
+                SubCommodityCode = $"SUB-{nextNumber}",
+                SubCommodityName = subCommodityobj.SubCommodityName
+            };
             await _repository.AddAsync(subCommodity);
 
         }

@@ -16,5 +16,10 @@ namespace AgriGrader.Application.Interfaces
     {
         Task<IEnumerable<Commodity>> GetAllAsync();
         Task<CommodityDto> AddAsync(CreateCommodityDto dto);
+        Task<PagedResult<CommodityDto>> GetAllPaginationAsync(int pageNumber, int pageSize);
+
+        Task<CommodityDto> GetByIdAsync(int id);
+        Task<bool> UpdateAsync(UpdateCommodityDto dto); 
+        Task<bool> DeleteAsync(int id);
     }
 }

@@ -22,6 +22,8 @@ namespace AgriGrader.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
+      
+
         public async Task<IEnumerable<Commodity>> GetAllAsync()
         {
             return await _context.Commodities.ToListAsync();
@@ -32,9 +34,32 @@ namespace AgriGrader.Infrastructure.Repositories
             return await _context.Commodities.FindAsync(id);
         }
 
-        Task<Commodity> ICommodityRepository.GetByIdAsync()
+       
+
+        public async Task<(List<Commodity>, int)> GetPagedAsync(int pageNumber, int pageSize)
         {
-            throw new NotImplementedException();
+            var query = _context.Commodities.AsQueryable();
+            var totalCount = await query.CountAsync();
+
+            var data = await query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            return (data, totalCount);
+        }
+
+        public async Task saveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
+
+        public void updateAsync(Commodity commodity)
+        {
+            _context.Commodities.Update(commodity);
+        }
+
+
+        public void DeleteAsync(Commodity commodity)
+        {
+            _context.Commodities.Remove(commodity);
         }
     }
 }
